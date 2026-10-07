@@ -10,7 +10,7 @@ export const Route = createFileRoute("/work/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) return { meta: [{ title: "Not found — HM Interiors" }, { name: "robots", content: "noindex" }] };
-    const p = projects[loaderData.idx];
+    const p = projects[loaderData.idx]!;
     return {
       meta: [
         { title: `${p.name} — HM Interiors` },
@@ -30,9 +30,9 @@ export const Route = createFileRoute("/work/$slug")({
 
 function ProjectPage() {
   const { idx } = Route.useLoaderData();
-  const p = projects[idx];
-  const prev = projects[(idx - 1 + projects.length) % projects.length];
-  const next = projects[(idx + 1) % projects.length];
+  const p = projects[idx]!;
+  const prev = projects[(idx - 1 + projects.length) % projects.length]!;
+  const next = projects[(idx + 1) % projects.length]!;
   const [a, b, c, d, e, f, g] = p.images;
   const discipline = p.commercial ? "Interior Architecture / Commercial Spatial Design / Material Curation" : "Interior Architecture / Spatial Design / Material Curation";
 

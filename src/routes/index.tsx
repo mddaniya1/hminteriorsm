@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [i, setI] = useState(0);
   const [show, setShow] = useState(true);
-  const p = projects[i];
+  const p = projects[i]!;
 
   const go = (dir: 1 | -1) => {
     setShow(false);

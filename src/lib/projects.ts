@@ -31,9 +31,9 @@ export type Project = {
   images: [string, string, string, string, string, string, string];
 };
 
-const wide = [p1, p2, p5, p6];
-const tall = [p3, p4, p7, p8];
-const set = (i: number): Project["images"] => [
+const wide: string[] = [p1, p2, p5, p6];
+const tall: string[] = [p3, p4, p7, p8];
+const set = (i: number) => [
   wide[i % 4], tall[i % 4], wide[(i + 1) % 4], wide[(i + 2) % 4], tall[(i + 1) % 4], tall[(i + 2) % 4], wide[(i + 3) % 4],
 ];
 
