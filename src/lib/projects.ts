@@ -33,8 +33,9 @@ export type Project = {
 
 const wide: string[] = [p1, p2, p5, p6];
 const tall: string[] = [p3, p4, p7, p8];
-const set = (i: number) => [
-  wide[i % 4], tall[i % 4], wide[(i + 1) % 4], wide[(i + 2) % 4], tall[(i + 1) % 4], tall[(i + 2) % 4], wide[(i + 3) % 4],
+const at = (a: string[], n: number) => a[n % a.length]!;
+const set = (i: number): Project["images"] => [
+  at(wide, i), at(tall, i), at(wide, i + 1), at(wide, i + 2), at(tall, i + 1), at(tall, i + 2), at(wide, i + 3),
 ];
 
 export const projects: Project[] = [
